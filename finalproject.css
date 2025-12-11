@@ -1478,10 +1478,11 @@ body {
     transform-style: preserve-3d;
     cursor: pointer;
     transition: transform 0.8s ease;
+    transform: rotateY(180deg);  /* ADD THIS LINE */
 }
 
 .postcard-container.flipped {
-    transform: rotateY(180deg);
+    transform: rotateY(0deg);  /* CHANGE FROM 180deg to 0deg */
 }
 
 .postcard-front {
@@ -1505,7 +1506,7 @@ body {
     width: 100%;
     backface-visibility: hidden;
     transform-style: preserve-3d;
-    transform: rotateY(180deg);  /* ADD THIS LINE */
+    /* NO transform here */
 }
 
 .postcard-stamps {
@@ -1627,7 +1628,7 @@ body {
     width: 100%;
     backface-visibility: hidden;
     transform-style: preserve-3d;
-  
+    transform: rotateY(180deg);  /* KEEP THIS */
 }
 
 .postcard-left {
