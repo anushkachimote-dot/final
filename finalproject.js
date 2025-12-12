@@ -656,7 +656,7 @@ function createPostcardPopup(location, dramaTitle) {
                 </div>
                 <div class="flip-instruction">✨ Click to flip ✨</div>
             </div>
-            <div class="postcard-popup">
+            <div class="postcard-back">
                 <div class="postcard-left">
                     <div class="postcard-image-container">
                         <img class="postcard-image" src="${images[0]}" alt="${location['Filming locatons']}">
