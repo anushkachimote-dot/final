@@ -1742,29 +1742,6 @@ body {
     content: "📺 ";
 }
 
-/* Ensure Leaflet popup respects transforms */
-.leaflet-popup-content-wrapper {
-    background: transparent !important;
-    padding: 0 !important;
-    box-shadow: none !important;
-    border-radius: 0 !important;
-    overflow: visible !important;
-    perspective: 1000px;
-}
-
-.leaflet-popup-content {
-    margin: 0 !important;
-    width: 580px !important;
-    line-height: 1 !important;
-}
-
-.leaflet-popup-tip {
-    display: none !important;
-}
-
-.leaflet-popup {
-    max-width: calc(100vw - 40px) !important;
-}
 
 @media (max-width: 1024px) {
     .books-container {
@@ -1987,7 +1964,7 @@ body {
         top: -45px;
         right: 10px;
         width: 40px;
-        height: 40px;xfpo
+        height: 40px;
     }
 
     .diary-polaroid {
