@@ -1652,6 +1652,7 @@ body {
     font-weight: bold;
     color: #ff8c42;
     margin-right: 8px;
+   
 }
 
 .address-text {
@@ -1666,6 +1667,7 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+     text-wrap: balance;
 }
 
 .postcard-airmail-lines {
