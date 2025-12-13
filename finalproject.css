@@ -1664,7 +1664,6 @@ body {
     border-bottom: 1px solid #ccc;
     min-width: 320px;
     max-width: 320px;
-    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
      text-wrap: balance;
