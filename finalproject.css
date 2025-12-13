@@ -1478,11 +1478,10 @@ body {
     transform-style: preserve-3d;
     cursor: pointer;
     transition: transform 0.8s ease;
-    transform: rotateY(180deg);  /* ADD THIS LINE */
 }
 
 .postcard-container.flipped {
-    transform: rotateY(0deg);  /* CHANGE FROM 180deg to 0deg */
+    transform: rotateY(180deg);
 }
 
 .postcard-front {
@@ -1506,105 +1505,8 @@ body {
     width: 100%;
     backface-visibility: hidden;
     transform-style: preserve-3d;
-    /* NO transform here */
-}
-
-.postcard-stamps {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    display: flex;
-    gap: 3px;
-}
-
-.postcard-stamp {
-    width: 80px;
-    height: 90px;
-    padding: 0;
-    background: none;
-    border: none;
-    box-shadow: none;
-}
-
-.postcard-stamp img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-.postcard-address-lines {
-    position: absolute;
-    left: 30px;
-    bottom: 50px;
-}
-
-.address-line {
-    display: flex;
-    align-items: center;
-    margin-bottom: 6px;
-}
-
-.address-label {
-    font-family: 'Courier New', monospace;
-    font-size: 18px;
-    font-weight: bold;
-    color: #ff8c42;
-    margin-right: 8px;
-}
-
-.address-text {
-    font-family: 'Courier New', monospace;
-    font-size: 18px;
-    font-weight:bold;
-    color: #555;
-    padding-bottom: 2px;
-    border-bottom: 1px solid #ccc;
-    min-width: 320px;
-    max-width: 320px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    text-wrap:balance;
-}
-
-.postcard-airmail-lines {
-    position: absolute;
-    top: 40px;
-    right: 160px;
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    transform: rotate(-5deg);
-}
-
-.airmail-line {
-    height: 3px;
-    background: #dc143c;
-    border-radius: 2px;
-}
-
-.airmail-line:nth-child(1) { width: 30px; }
-.airmail-line:nth-child(2) { width: 40px; }
-.airmail-line:nth-child(3) { width: 35px; }
-.airmail-line:nth-child(4) { width: 45px; }
-
-.flip-instruction {
-    position: absolute;
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: 'Courier New', monospace;
-    font-size: 11px;
-    color: #110404;
-    background: rgba(246, 174, 174, 0.8);
-    padding: 4px 12px;
-    border-radius: 12px;
-}
-
-@keyframes pulseInstruction {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
+    transform: rotateY(0deg);
+    z-index: 2;
 }
 
 .postcard-popup {
@@ -1628,7 +1530,8 @@ body {
     width: 100%;
     backface-visibility: hidden;
     transform-style: preserve-3d;
-    transform: rotateY(180deg);  /* KEEP THIS */
+    transform: rotateY(180deg);
+    z-index: 1;
 }
 
 .postcard-left {
@@ -1681,41 +1584,7 @@ body {
 .postcard-nav-next {
     right: 4px;
 }
-/* ============================================ */
-/* POSTCARD FLIP FIX */
-/* ============================================ */
 
-.postcard-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transition: transform 0.6s;
-}
-
-.postcard-front,
-.postcard-back {
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-}
-
-.postcard-front {
-  transform: rotateY(0deg);
-  z-index: 2;
-}
-
-.postcard-back {
-  transform: rotateY(180deg);
-}
-
-.postcard-container.flipped {
-  transform: rotateY(180deg);
-}
 .postcard-image-counter {
     position: absolute;
     bottom: 6px;
@@ -1736,6 +1605,103 @@ body {
     flex-direction: column;
     gap: 3px;
     overflow-y: auto;
+}
+
+.postcard-stamps {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    gap: 3px;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.postcard-stamp {
+    width: 80px;
+    height: 90px;
+    padding: 0;
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+.postcard-stamp img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.postcard-address-lines {
+    position: absolute;
+    left: 30px;
+    bottom: 50px;
+    pointer-events: none;
+}
+
+.address-line {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.address-label {
+    font-family: 'Courier New', monospace;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff8c42;
+    margin-right: 8px;
+}
+
+.address-text {
+    font-family: 'Courier New', monospace;
+    font-size: 18px;
+    font-weight: bold;
+    color: #555;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #ccc;
+    min-width: 320px;
+    max-width: 320px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.postcard-airmail-lines {
+    position: absolute;
+    top: 40px;
+    right: 160px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    transform: rotate(-5deg);
+    pointer-events: none;
+}
+
+.airmail-line {
+    height: 3px;
+    background: #dc143c;
+    border-radius: 2px;
+}
+
+.airmail-line:nth-child(1) { width: 30px; }
+.airmail-line:nth-child(2) { width: 40px; }
+.airmail-line:nth-child(3) { width: 35px; }
+.airmail-line:nth-child(4) { width: 45px; }
+
+.flip-instruction {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    color: #110404;
+    background: rgba(246, 174, 174, 0.8);
+    padding: 4px 12px;
+    border-radius: 12px;
+    pointer-events: none;
 }
 
 .postcard-location-name {
@@ -1774,6 +1740,30 @@ body {
 
 .postcard-episode::before {
     content: "📺 ";
+}
+
+/* Ensure Leaflet popup respects transforms */
+.leaflet-popup-content-wrapper {
+    background: transparent !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    overflow: visible !important;
+    perspective: 1000px;
+}
+
+.leaflet-popup-content {
+    margin: 0 !important;
+    width: 580px !important;
+    line-height: 1 !important;
+}
+
+.leaflet-popup-tip {
+    display: none !important;
+}
+
+.leaflet-popup {
+    max-width: calc(100vw - 40px) !important;
 }
 
 @media (max-width: 1024px) {
@@ -1997,7 +1987,7 @@ body {
         top: -45px;
         right: 10px;
         width: 40px;
-        height: 40px;
+        height: 40px;xfpo
     }
 
     .diary-polaroid {
