@@ -654,9 +654,15 @@ function createPostcardPopup(location, dramaTitle) {
                         <span class="address-text">${location.address}</span>
                     </div>
                 </div>
+                <div class="postcard-airmail-lines">
+                    <div class="airmail-line"></div>
+                    <div class="airmail-line"></div>
+                    <div class="airmail-line"></div>
+                    <div class="airmail-line"></div>
+                </div>
                 <div class="flip-instruction">✨ Click to flip ✨</div>
             </div>
-            <div class="postcard-back">
+            <div class="postcard-popup">
                 <div class="postcard-left">
                     <div class="postcard-image-container">
                         <img class="postcard-image" src="${images[0]}" alt="${location['Filming locatons']}">
@@ -681,6 +687,9 @@ function createPostcardPopup(location, dramaTitle) {
     container.innerHTML = postcardHTML;
     
     const postcardContainer = container.querySelector('.postcard-container');
+    
+    // IMPORTANT FIX: Ensure the postcard starts in unflipped state
+    postcardContainer.classList.remove('flipped');
     
     if (images.length > 1) {
         const prevBtn = container.querySelector('.postcard-nav-prev');
